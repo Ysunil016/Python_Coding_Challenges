@@ -14,21 +14,14 @@ class SingleLinkedList:  # Single Linked List Implementation
             print(str(head.data)+" ", end='')
             head = head.next
 
-    def nth_node_from_last(self, key):
-        head = self.head
-        slow_pointer = head
-        fast_pointer = head
-        counter = 0
-        while fast_pointer is not None:
-            counter += 1
-            if counter > key:
-                slow_pointer = slow_pointer.next
-            fast_pointer = fast_pointer.next
-
-        if key > counter:
-            return -1
-
-        return slow_pointer.data
+    def delete_node(self, node):
+        self
+        prev = None
+        while node.next is not None:
+            prev = node
+            node.data = node.next.data
+            node = node.next
+        prev.next = None
 
 
 _nodeA = Node("One")
@@ -52,5 +45,7 @@ _nodeF.next = _nodeG
 _nodeG.next = _nodeH
 _nodeH.next = _nodeI
 
-print(_list.nth_node_from_last(5))
-
+_list.display_linked_list()
+_list.delete_node(_nodeH)
+print()
+_list.display_linked_list()

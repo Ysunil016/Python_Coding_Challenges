@@ -14,29 +14,22 @@ class SingleLinkedList:  # Single Linked List Implementation
             print(str(head.data)+" ", end='')
             head = head.next
 
-    def nth_node_from_last(self, key):
+    def count_occ(self, key):
         head = self.head
-        slow_pointer = head
-        fast_pointer = head
-        counter = 0
-        while fast_pointer is not None:
-            counter += 1
-            if counter > key:
-                slow_pointer = slow_pointer.next
-            fast_pointer = fast_pointer.next
-
-        if key > counter:
-            return -1
-
-        return slow_pointer.data
+        count = 0
+        while head is not None:
+            if head.data == key:
+                count += 1
+            head = head.next
+        return count
 
 
 _nodeA = Node("One")
 _nodeB = Node("Two")
-_nodeC = Node("Three")
+_nodeC = Node("Nine")
 _nodeD = Node("Four")
 _nodeE = Node("Five")
-_nodeF = Node("Six")
+_nodeF = Node("Nine")
 _nodeG = Node("Seven")
 _nodeH = Node("Eight")
 _nodeI = Node("Nine")
@@ -52,5 +45,5 @@ _nodeF.next = _nodeG
 _nodeG.next = _nodeH
 _nodeH.next = _nodeI
 
-print(_list.nth_node_from_last(5))
+print(_list.count_occ("Nine"))
 
